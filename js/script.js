@@ -7,7 +7,7 @@ $(document).on("pagecreate", "#home", function() {
         var password = $("#password").val();
         
         // Validar usuario y contraseña
-        if (username === "usuario" && password === "contraseña") {
+        if (username === "supervisor" && password === "vitcoms$2023") {
             // Si son válidos, redireccionar a la página de opciones
             $("#username").val("");
             $("#password").val("");

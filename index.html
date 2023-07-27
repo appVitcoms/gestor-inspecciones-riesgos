@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VITCOMS</title>
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/errHistorial.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+</head>
+<body>
+	<div data-role="page" id="home"  >
+		<div data-role="header" class="header ">
+			<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
+			<h1 >Acesoria empresarial</h1>
+			
+		</div>
+	
+		<div role="main" class=" content ui-content custom-form">
+			<form id="login-form">
+				<label for="username">Usuario:</label>
+				<input type="text" name="username" id="username" value="">
+				<label for="password">Contraseña:</label>
+				<input type="password" name="password" id="password" value="">
+				<button type="submit" data-theme="b">Ingresar</button>
+			</form>
+		</div>
+	
+		<div data-role="footer" class="header">
+			<h4>Acesoria Empresarial</h4>
+			<p><a href="#contacto">Contacto</a> | <a href="#correo">Correo electrónico</a></p>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<!-- Agrega aquí el código HTML para las otras páginas -->
+	<!--menu de seleccion de opciones-->
+	<div data-role="page" id="opciones" >
+		<div data-role="header" class="header">
+			<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
+			<h1 >Acesoria empresarial</h1>
+			
+		</div><!-- /header -->
+
+	  <div role="main" class="ui-content">
+	        <a href="https://docs.google.com/forms/d/e/1FAIpQLScOOg9Ln1zqQs-iQGr_3qB0eR97Al_VUrjRdUTn4JAMvdRCoQ/viewform" data-role="button" id="btnBodega">BODEGA ELECTRO</a>
+	        <a href="https://docs.google.com/forms/d/1to-nxMi0tEJZsjTKL2jVIW5slcE-o4FFO1Q8X7jKIfU/edit" data-role="button" id="btnElectro">PISO ELECTRO</a>
+	        <a href="https://docs.google.com/forms/d/e/1FAIpQLSduEqJHvbgUuivoYrO1j5X7UhCp488_4BisiB7C21KK6teMvQ/viewform" data-role="button" id="btnRecorredor">RECORREDOR </a>
+	    </div><!-- /content -->
+
+	   <div data-role="footer"class="header">
+	        <h4>Acesoria empresarial</h4>
+	        <p><a href="#contacto">Contacto</a> | <a href="#correo">Correo electrónico</a></p>
+	    </div><!-- /footer -->
+	</div><!-- /page -->
+
+
+<!--------------------------------------------------------------------------------------------------------->	
+
+	<!--aca los formularios-->
+	<div data-role="page" id="forms" >
+		<div data-role="header" class="header">
+			<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
+			<h1 >Acesoria empresarial</h1>
+			
+		</div><!-- /header -->
+
+    	<div role="main" class="ui-content" id="formulario-inspeccion-servicio-bodega-electro">
+        <!-- Agrega aquí el código HTML para mostrar el formulario de Google -->
+       
+        	<iframe src="#" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        	<a href="#opciones" data-role="button" id="btnmenu"data-theme="b"  >MENU </a>
+        	<a href="#home" data-role="button" id="btnsalir" data-theme="b">SALIR </a>
+
+   		
+</div><!-- /page -->
+
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

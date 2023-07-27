@@ -15,8 +15,53 @@
   display: flex;
   flex-direction: column;
 }
+/* Estilo de la lista */
+    .professional-list {
+      list-style: none;
+      padding: 10px;
+      margin: 6px;
+      border: 1px solid #0028DC;
+      max-width: 400px;
+      margin: 20px auto;      
+      border-radius: 10px;  
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
 
-    
+    .professional-list li {
+      border: 1px solid black;
+      border-bottom-width: 0px;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 15px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Para centrar el contenido horizontalmente */ 
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease-in-out;
+    }
+    .professional-list li:not(:first-child) {
+       margin-top: 10px; /* Agregar margen superior a todos los elementos li excepto al primero */
+    }
+
+    .professional-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Estilos para los enlaces */
+    .professional-list li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      flex: 1; /* Para ocupar todo el espacio disponible y centrar el texto verticalmente */
+      text-align: center; /* Para centrar el contenido horizontalmente */
+    }
+
+    .professional-list li a:hover {
+      color: #007bff;
+    }
+
 
 [data-role="footer"] a {
   color: #000000;

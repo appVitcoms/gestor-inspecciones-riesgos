@@ -4,7 +4,10 @@
 }
 .header img {
   width: 100%;
+  display: block;
+  text-align: center;
 }
+
 .ui-content {
       display: flex;
       justify-content: center;
@@ -67,6 +70,8 @@
       align-items: center;
       color:#000000 ;
     }
+
+
 
 
 /* Estilos para los botones <a> */

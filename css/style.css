@@ -29,9 +29,9 @@
     }
 
     .professional-list li {
-      border: 1px solid black;
+      border: 1px solid #0028DC;
       border-bottom-width: 0px;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 2px solid #0028DC;
       margin-bottom: 15px;
       padding: 10px;
       display: flex;
@@ -61,6 +61,39 @@
     .professional-list li a:hover {
       color: #007bff;
     }
+    .titulo-gestion{
+      text-align: center;
+      align-items: center;
+      color:#000000 ;
+    }
+
+
+/* Estilos para los botones <a> */
+.btn-menu-salir {
+  background-color: #EBEEFA; /* Fondo */
+  color: #000000; /* Color de letra negro */
+  text-decoration: none;
+  padding: 12px 20px;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Efecto de sombra 3D */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones para el efecto 3D */
+}
+
+/* Efecto 3D al pasar el cursor por encima */
+.btn-menu-salir:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Efecto 3D al hacer clic */
+.btn-menu-salir:active {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Volver al efecto original */
+  transform: translateY(0); /* Volver a la posición original */
+}
+
 
 
 [data-role="footer"] a {

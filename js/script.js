@@ -39,6 +39,11 @@ $(document).on("pagecreate", "#home", function() {
     });
 });
 
+$(document).on("pagecreate", function() {
+      // Aplicar la clase .btn-menu-salir a los botones
+      $(".btn-menu-salir").buttonMarkup();
+    });
+
 $(document).on("pagecreate", "#opciones", function() {
     // Manejar el evento click en el botón de inspección de servicio - bodega electrónica
  $("#btnBodega").on("click", function() {

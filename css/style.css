@@ -11,6 +11,12 @@
       align-items: center;
       height: 100%;
     }
+.vertical-list {
+  display: flex;
+  flex-direction: column;
+}
+
+    
 
 [data-role="footer"] a {
   color: #000000;

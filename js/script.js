@@ -7,7 +7,7 @@ $(document).on("pagecreate", "#home", function() {
         var password = $("#password").val();
         
         // Validar usuario y contraseña
-        if (username === "supervisor" && password === "vitcoms$2023") {
+        if (username === "" && password === "") {
             // Si son válidos, redireccionar a la página de opciones
             $("#username").val("");
             $("#password").val("");
@@ -39,10 +39,7 @@ $(document).on("pagecreate", "#home", function() {
     });
 });
 
-$(document).on("pagecreate", function() {
-      // Aplicar la clase .btn-menu-salir a los botones
-      $(".btn-menu-salir").buttonMarkup();
-    });
+
 
 $(document).on("pagecreate", "#opciones", function() {
     // Manejar el evento click en el botón de inspección de servicio - bodega electrónica

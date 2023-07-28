@@ -2,8 +2,8 @@
   max-width: 100%;
   height: auto;
 }
-.header img {
-  width: 100%;
+.header h1 {
+  width: 50%;
   display: block;
   text-align: center;
 }
@@ -94,11 +94,13 @@
   transform: translateY(-2px); /* Efecto de elevación */
 }
 
+
 /* Efecto 3D al hacer clic */
 .btn-menu-salir:active {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Volver al efecto original */
   transform: translateY(0); /* Volver a la posición original */
 }
+
 
 
 

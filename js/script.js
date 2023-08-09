@@ -68,7 +68,7 @@ $(document).on("pagecreate", "#opciones", function() {
 
  $("#btnRecorredor").on("click", function() {
         // Obtener el ID del formulario de Google correspondiente
-    var formularioId = "1FAIpQLSduEqJHvbgUuivoYrO1j5X7UhCp488_4BisiB7C21KK6teMvQ";
+    var formularioId = "1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY";
 
         // Actualizar el src del iframe con la URL del formulario de Google correspondiente
     $("#formulario-inspeccion-servicio-bodega-electro iframe").attr("src", "https://docs.google.com/forms/d/e/" + formularioId + "/viewform?embedded=true");
@@ -77,6 +77,46 @@ $(document).on("pagecreate", "#opciones", function() {
     $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
     return false;
 });
+
+
+/*$("#btnGenerarInforme").on("click", function() {
+  // Obtener el ID del formulario de Google correspondiente
+  var formularioId = "1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY";
+
+  // Actualizar el src del iframe con la URL del formulario de Google correspondiente
+  var url = "https://docs.google.com/spreadsheets/d/" + formularioId + "/edit?usp=sharing&range=A1:B10";
+  $("#formulario-inspeccion-servicio-bodega-electro iframe").attr("src", url);
+
+  // Abrir la página de formulario en un diálogo
+  $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
+  
+  return false;
+});*/
+$("#btnGenerarInforme").on("click", function() {
+  // Obtener el ID del formulario de Google correspondiente
+  
+
+  // Actualizar el src del iframe con la URL del formulario de Google correspondiente
+  var sheetId = "1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY"; // Reemplaza esto con el ID de la hoja que deseas mostrar
+  var range = "B5:h40";
+  var url = "https://docs.google.com/spreadsheets/d/"  + sheetId + "/edit?usp=sharing&range=" + range;
+  
+  $("#formulario-inspeccion-servicio-bodega-electro iframe").attr("src", url);
+
+  // Abrir la página de formulario en un diálogo
+  $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
+
+  return false;
+});
+
+
+
+
+
+
+
+
+
  $(document).on('mobileinit', function() {
     $.mobile.initializePage();
 });

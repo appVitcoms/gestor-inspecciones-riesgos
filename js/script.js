@@ -68,7 +68,7 @@ $(document).on("pagecreate", "#opciones", function() {
 
  $("#btnRecorredor").on("click", function() {
         // Obtener el ID del formulario de Google correspondiente
-    var formularioId = "1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY";
+    var formularioId = "1FAIpQLSduEqJHvbgUuivoYrO1j5X7UhCp488_4BisiB7C21KK6teMvQ";
 
         // Actualizar el src del iframe con la URL del formulario de Google correspondiente
     $("#formulario-inspeccion-servicio-bodega-electro iframe").attr("src", "https://docs.google.com/forms/d/e/" + formularioId + "/viewform?embedded=true");

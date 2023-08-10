@@ -79,27 +79,15 @@ $(document).on("pagecreate", "#opciones", function() {
 });
 
 
-/*$("#btnGenerarInforme").on("click", function() {
-  // Obtener el ID del formulario de Google correspondiente
-  var formularioId = "1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY";
-
-  // Actualizar el src del iframe con la URL del formulario de Google correspondiente
-  var url = "https://docs.google.com/spreadsheets/d/" + formularioId + "/edit?usp=sharing&range=A1:B10";
-  $("#formulario-inspeccion-servicio-bodega-electro iframe").attr("src", url);
-
-  // Abrir la página de formulario en un diálogo
-  $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
-  
-  return false;
-});*/
+/*
 $("#btnGenerarInforme").on("click", function() {
   // Obtener el ID del formulario de Google correspondiente
   
 
   // Actualizar el src del iframe con la URL del formulario de Google correspondiente
-  var sheetId = "1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY"; // Reemplaza esto con el ID de la hoja que deseas mostrar
+  var sheetId = "2PACX-1vQRDgXVUumUZC1hKIvvfbAX4JDKiD_7IlrPMXSszwBoQCy2AJlfwFflBwpy5znZZ_RAFInIePjIdtNG"; // Reemplaza esto con el ID de la hoja que deseas mostrar
   var range = "B5:h40";
-  var url = "https://docs.google.com/spreadsheets/d/"  + sheetId + "/edit?usp=sharing&range=" + range;
+  var url = "https://docs.google.com/spreadsheets/d/e/"  + sheetId + "/pubhtml?gid=1702039537&amp;single=true&amp;widget=true&amp;headers=false" + range;
   
   $("#formulario-inspeccion-servicio-bodega-electro iframe").attr("src", url);
 
@@ -107,6 +95,17 @@ $("#btnGenerarInforme").on("click", function() {
   $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
 
   return false;
+});*/
+ $("#btnVisitaCliente").on("click", function() {
+        // Obtener el ID del formulario de Google correspondiente
+    var formularioId = "1FAIpQLScwKUCcrr6ImxTGwyX_bJcrXfPhLJJVx6P5p3vMzpR-65U9PQ";
+
+        // Actualizar el src del iframe con la URL del formulario de Google correspondiente
+    $("#formulario-inspeccion-servicio-bodega-electro iframe").attr("src", "https://docs.google.com/forms/d/e/" + formularioId + "/viewform?embedded=true");
+
+        // Abrir la página de formulario en un diálogo
+    $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
+    return false;
 });
 
 

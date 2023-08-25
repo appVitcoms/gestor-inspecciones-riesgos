@@ -240,8 +240,8 @@ var fechaCelda = 'C10';
 // Inicializa la API de Google Sheets
 function initClient() {
   gapi.client.init({
-    apiKey: '4206dfbc8aa2f39be81db405119dcaf177483056',
-    clientId: '100495741847459020315',
+    clientId: '558490154225-096rra1s21dr3ln05j9j13jjbvk07gc2.apps.googleusercontent.com',
+    clientSecret: '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',
     discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
     scope: 'https://www.googleapis.com/auth/spreadsheets'
   }).then(function() {

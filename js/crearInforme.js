@@ -233,32 +233,50 @@ function ejecutarMacro() {
 // ID de la hoja de cálculo de Google Sheets
 var spreadsheetId = '1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY';
 
-// Rango de celdas para almacenar la sucursal y la fecha
-var sucursalCelda = 'C8';
-var fechaCelda = 'C10';
+// ID del proyecto de Google Apps Script
+var scriptId = '1NEk8ka7TEa0SNnqFc2QeUvKCTrHVnH56HaxhB7PR2orHpofAVBzbjEFm';
+gapi.load('client', initClient);
 
-// Inicializa la API de Google Sheets
+// Inicializa la API de Google Sheets y Google Apps Script
 function initClient() {
   gapi.client.init({
     clientId: '558490154225-096rra1s21dr3ln05j9j13jjbvk07gc2.apps.googleusercontent.com',
     clientSecret: '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',
-    discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-    scope: 'https://www.googleapis.com/auth/spreadsheets'
+    discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4', 'https://script.googleapis.com/$discovery/rest?version=v1'],
+    scope: 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/script.projects'
   }).then(function() {
-    console.log('API de Google Sheets inicializada correctamente.');
+    console.log('API de Google Sheets y Google Apps Script inicializadas correctamente.');
     enviarDatosASpreadsheet();
   }, function(reason) {
-    console.error('Ha ocurrido un error al inicializar la API de Google Sheets:', reason);
+    console.error('Ha ocurrido un error al inicializar las API:', reason);
   });
 }
+
+// Ejecuta la función crearInforme en Google Apps Script
+function ejecutarCrearInforme() {
+  gapi.client.script.scripts.run({
+    scriptId: scriptId,
+    resource: {
+      function: 'crearInforme'
+    }
+  }).then(function(resp) {
+    if (resp.result.error) {
+      console.error('Ha ocurrido un error al ejecutar la función crearInforme:', resp.result.error);
+    } else {
+      console.log('Función crearInforme ejecutada correctamente.');
+    }
+  }, function(reason) {
+    console.error('Ha ocurrido un error al ejecutar la función crearInforme:', reason);
+  });
+}
+
 // Muestra el formulario para ingresar la sucursal y la fecha
 function mostrarFormulario() {
   var formulario2 = document.getElementById("formulario");
   var formularioIframe = document.getElementById("mi-iframe");
-  formulario2.style.display = 'block'; // Mostrar el formulario 
-  formularioIframe.write(formulario2.outerHTML); 
+  formulario2.style.display = 'block'; // Mostrar el formulario
+  formularioIframe.write(formulario2.outerHTML);
   $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
-  
 }
 
 // Almacena la sucursal y la fecha en la hoja de cálculo
@@ -275,60 +293,34 @@ function almacenarDatos() {
       values: [[sucursal]]
     }
   }).then(function(response) {
-    console.log('La sucursal se ha almacenado correctamente.');
+    console.log('Sucursal almacenada correctamente.');
+
+    // Actualiza el valor de la celda de la fecha
+    gapi.client.sheets.spreadsheets.values.update({
+      spreadsheetId: spreadsheetId,
+      range: fechaCelda,
+      valueInputOption: 'USER_ENTERED',
+      resource: {
+        values: [[fecha]]
+      }
+    }).then(function(response) {
+      console.log('Fecha almacenada correctamente.');
+
+      // Ejecuta la función crearInforme en Google Apps Script
+      ejecutarCrearInforme();
+    }, function(reason) {
+      console.error('Ha ocurrido un error al almacenar la fecha:', reason);
+    });
   }, function(reason) {
     console.error('Ha ocurrido un error al almacenar la sucursal:', reason);
   });
-
-  // Actualiza el valor de la celda de la fecha
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: fechaCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[fecha]]
-    }
-  }).then(function(response) {
-    console.log('La fecha se ha almacenado correctamente.');
-  }, function(reason) {
-    console.error('Ha ocurrido un error al almacenar la fecha:', reason);
-  });
-
-  // Ejecuta la macro de Apps Script
-  ejecutarMacro();
 }
 
-// Ejecuta la macro de Apps Script
-function ejecutarMacro() {
-  // URL de la macro de Apps Script
-  var macroUrl = 'https://script.google.com/macros/s/AKfycbwYn4D6jNlqfXzIgXeJkHvJlR5Nn9g8zK2uXyWYVg/exec?functionName=crearInforme';
-
-  // Parámetros para la macro de Apps Script
-  var params = {
-    spreadsheetId: spreadsheetId,
-    sucursalCelda: sucursalCelda,
-    fechaCelda: fechaCelda
-  };
-
-  // Realiza una petición GET a la URL de la macro de Apps Script con los parámetros
-  gapi.client.request({
-    path: macroUrl,
-    method: 'GET',
-    params: params
-  }).then(function(response) {
-    console.log('La macro se ha ejecutado correctamente.');
-  }, function(reason) {
-    console.error('Ha ocurrido un error al ejecutar la macro:', reason);
-  });
+// Función para enviar los datos a la hoja de cálculo
+function enviarDatosASpreadsheet() {
+  // Aquí puedes agregar el código para mostrar y validar el formulario
+  // ...
+  mostrarFormulario();
 }
 
-// Inicia sesión en Google al cargar la página
-gapi.load('client:auth2', initClient);
-
-
-
-// Almacena los datos al enviar el formulario
-document.getElementById('formulario').addEventListener('submit', function(event) {
-  event.preventDefault();
-  almacenarDatos();
-});
+// ... Resto de tu código ...

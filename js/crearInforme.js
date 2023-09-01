@@ -1,326 +1,86 @@
-/*var spreadsheetId = '1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY';
-var sucursalCelda = 'C8';
-var fechaCelda = 'C10';
-
-function mostrarFormulario() {
-  document.getElementById('formulario').style.display = 'block';
-}
-
-function almacenarDatos() {
-  var sucursal = document.getElementById('sucursal').value;
-  var fecha = document.getElementById('fecha').value;
-
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: sucursalCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[sucursal]]
-    }
-  }).then(function(response) {
-    console.log('La sucursal se ha almacenado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al almacenar la sucursal:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al almacenar la sucursal:', reason);
-    }
-  });
-
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: fechaCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[fecha]]
-    }
-  }).then(function(response) {
-    console.log('La fecha se ha almacenado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al almacenar la fecha:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al almacenar la fecha:', reason);
-    }
-  });
-
-  ejecutarMacro();
-}
-
-function ejecutarMacro() {
-  gapi.client.request({
-    path: 'https://script.google.com/macros/s/AKfycbwYn4D6jNlqfXzIgXeJkHvJlR5Nn9g8zK2uXyWYVg/exec',
-    method: 'post',
-    body: {
-      action: 'crearInforme'
-    }
-  }).then(function(response) {
-    console.log('La macro se ha ejecutado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al ejecutar la macro:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al ejecutar la macro:', reason);
-    }
-  });
-}
-
-gapi.load('client', function() {
-  gapi.client.init({
-    apiKey: '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'
-  }).then(function() {
-    console.log('La API de Google Sheets se ha cargado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al cargar la API:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al cargar la API:', reason);
-    }
-  });
-});*/
-
-
-
-
+//inicializar api de google
+// Inicializar API de Google/
 /*
-var spreadsheetId = '11MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY';
-var sucursalCelda = 'C8';
-var fechaCelda = 'C10';
-
-gapi.load('client', function() {
-  gapi.client.init({
-    apiKey: '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',
-    discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4']
-  }).then(function() {
-    console.log('API de Google Sheets inicializada correctamente.');
-  }, function(reason) {
-    console.error('Ha ocurrido un error al inicializar la API de Google Sheets:', reason);
-  });
-});
-
-function mostrarFormulario() {
-  document.getElementById('formulario').style.display = 'block';
-}
-
-function almacenarDatos() {
-  var sucursal = document.getElementById('sucursal').value;
-  var fecha = document.getElementById('fecha').value;
-
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: sucursalCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[sucursal]]
-    }
-  }).then(function(response) {
-    console.log('La sucursal se ha almacenado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al almacenar la sucursal:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al almacenar la sucursal:', reason);
-    }
-  });
-
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: fechaCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[fecha]]
-    }
-  }).then(function(response) {
-    console.log('La fecha se ha almacenado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al almacenar la fecha:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al almacenar la fecha:', reason);
-    }
-  });
-
-  ejecutarMacro();
-}
-
-function ejecutarMacro() {
-  gapi.client.request({
-    path: 'https://script.google.com/macros/s/AKfycbwYn4D6jNlqfXzIgXeJkHvJlR5Nn9g8zK2uXyWYVg/exec',
-    method: 'GET'
-  }).then(function(response) {
-    console.log('La macro se ha ejecutado correctamente.');
-  }, function(reason) {
-    console.error('Ha ocurrido un error al ejecutar la macro:', reason);
-  });
-}
-
-*/
-
-/*
-var spreadsheetId = '1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY';
-var sucursalCelda = 'C8';
-var fechaCelda = 'C10';
-
-gapi.load('client:auth2', function() {
-  gapi.client.init({
-    clientId: '558490154225-2babaauq90aomftro5h8ddmj4i7nh4g8.apps.googleusercontent.com',
-    discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-    scope: 'https://www.googleapis.com/auth/spreadsheets'
-  }).then(function() {
-    console.log('API de Google Sheets inicializada correctamente.');
-  }, function(reason) {
-    console.error('Ha ocurrido un error al inicializar la API de Google Sheets:', reason);
-  });
-});
-
-function mostrarFormulario() {
-  document.getElementById('formulario').style.display = 'block';
-}
-
-function almacenarDatos() {
-  var sucursal = document.getElementById('sucursal').value;
-  var fecha = document.getElementById('fecha').value;
-
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: sucursalCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[sucursal]]
-    }
-  }).then(function(response) {
-    console.log('La sucursal se ha almacenado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al almacenar la sucursal:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al almacenar la sucursal:', reason);
-    }
-  });
-
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: fechaCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[fecha]]
-    }
-  }).then(function(response) {
-    console.log('La fecha se ha almacenado correctamente.');
-  }, function(reason) {
-    if (reason.result.error !== undefined) {
-      console.error('Ha ocurrido un error al almacenar la fecha:', reason.result.error.message);
-    } else {
-      console.error('Ha ocurrido un error al almacenar la fecha:', reason);
-    }
-  });
-
-  ejecutarMacro();
-}
-
-function ejecutarMacro() {
-  gapi.client.request({
-    path: 'https://script.google.com/macros/s/AKfycbwYn4D6jNlqfXzIgXeJkHvJlR5Nn9g8zK2uXyWYVg/exec',
-    method: 'GET'
-  }).then(function(response) {
-    console.log('La macro se ha ejecutado correctamente.');
-  }, function(reason) {
-    console.error('Ha ocurrido un error al ejecutar la macro:', reason);
-  });
-}
-*/
-
-// ID de la hoja de cálculo de Google Sheets
-var spreadsheetId = '1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY';
-
-// ID del proyecto de Google Apps Script
-var scriptId = '1NEk8ka7TEa0SNnqFc2QeUvKCTrHVnH56HaxhB7PR2orHpofAVBzbjEFm';
-gapi.load('client', initClient);
-
-// Inicializa la API de Google Sheets y Google Apps Script
-function initClient() {
-  gapi.client.init({
-    clientId: '558490154225-096rra1s21dr3ln05j9j13jjbvk07gc2.apps.googleusercontent.com',
-    clientSecret: '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',
-    discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4', 'https://script.googleapis.com/$discovery/rest?version=v1'],
-    scope: 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/script.projects'
-  }).then(function() {
-    console.log('API de Google Sheets y Google Apps Script inicializadas correctamente.');
-    enviarDatosASpreadsheet();
-  }, function(reason) {
-    console.error('Ha ocurrido un error al inicializar las API:', reason);
-  });
-}
-
-// Ejecuta la función crearInforme en Google Apps Script
-function ejecutarCrearInforme() {
-  gapi.client.script.scripts.run({
-    scriptId: scriptId,
-    resource: {
-      function: 'crearInforme'
-    }
-  }).then(function(resp) {
-    if (resp.result.error) {
-      console.error('Ha ocurrido un error al ejecutar la función crearInforme:', resp.result.error);
-    } else {
-      console.log('Función crearInforme ejecutada correctamente.');
-    }
-  }, function(reason) {
-    console.error('Ha ocurrido un error al ejecutar la función crearInforme:', reason);
-  });
-}
-
-// Muestra el formulario para ingresar la sucursal y la fecha
-function mostrarFormulario() {
-  var formulario2 = document.getElementById("formulario");
-  var formularioIframe = document.getElementById("mi-iframe");
-  formulario2.style.display = 'block'; // Mostrar el formulario
-  formularioIframe.write(formulario2.outerHTML);
-  $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
-}
-
-// Almacena la sucursal y la fecha en la hoja de cálculo
-function almacenarDatos() {
-  var sucursal = document.getElementById('sucursal').value;
-  var fecha = document.getElementById('fecha').value;
-
-  // Actualiza el valor de la celda de la sucursal
-  gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: spreadsheetId,
-    range: sucursalCelda,
-    valueInputOption: 'USER_ENTERED',
-    resource: {
-      values: [[sucursal]]
-    }
-  }).then(function(response) {
-    console.log('Sucursal almacenada correctamente.');
-
-    // Actualiza el valor de la celda de la fecha
-    gapi.client.sheets.spreadsheets.values.update({
-      spreadsheetId: spreadsheetId,
-      range: fechaCelda,
-      valueInputOption: 'USER_ENTERED',
-      resource: {
-        values: [[fecha]]
+function initGoogleApi() {
+    gapi.load('client', async () => {
+      try {
+        await gapi.client.init({
+          apiKey: 'AIzaSyDRmpYn8Umm5t6s99-GGrNjM8DYZOO8Zuc',
+          clientId: '100495741847459020315',
+          scope: 'https://www.googleapis.com/auth/script.external_request https://www.googleapis.com/auth/spreadsheets',
+        });
+  
+        // Cargar la API de Google Sheets
+        await gapi.client.load('sheets', 'v4');
+        console.log('API de Google Sheets cargada e inicializada correctamente');
+      } catch (error) {
+        console.error('Error al inicializar la API de Google:', error);
       }
-    }).then(function(response) {
-      console.log('Fecha almacenada correctamente.');
-
-      // Ejecuta la función crearInforme en Google Apps Script
-      ejecutarCrearInforme();
-    }, function(reason) {
-      console.error('Ha ocurrido un error al almacenar la fecha:', reason);
     });
-  }, function(reason) {
-    console.error('Ha ocurrido un error al almacenar la sucursal:', reason);
+  }*/
+
+  async function ejecutarMacro() {
+    const sucursal = document.getElementById('sucursal').value;
+    const fecha = document.getElementById('fecha').value;
+    const spreadsheetId = '1MsVVVYR0iIlRwDQYC7ZeZ5ho8l7xk9N4FXKev2kbHsY';
+    const sheetName = 'GENERAR ACTA SUP';
+  
+    try {
+      // Verificar si gapi.client.sheets está definido
+      if (!gapi.client.sheets) {
+        console.error('Error: gapi.client.sheets no está definido. Asegúrate de que la API de Google Sheets esté cargada e inicializada correctamente.');
+        return;
+      }
+  
+      // Actualizar las celdas C7 y C9 con los valores de sucursal y fecha
+      await gapi.client.sheets.spreadsheets.values.batchUpdate({
+        spreadsheetId: spreadsheetId,
+        resource: {
+          valueInputOption: 'RAW',
+          data: [
+            { range: `${sheetName}!C9`, values: [[sucursal]] },
+            { range: `${sheetName}!C7`, values: [[fecha]] },
+          ],
+        },
+      });
+  
+      // Ejecutar la función 'crearInforme' en Google Apps Script
+      await gapi.client.script.scripts.run({
+        scriptId: '1NEk8ka7TEa0SNnqFc2QeUvKCTrHVnH56HaxhB7PR2orHpofAVBzbjEFm',
+        resource: {
+          function: 'crearInforme',
+          parameters: [], // Agrega aquí los parámetros necesarios para la macro, si los hay
+        },
+      });
+  
+      console.log('Macro ejecutada con éxito');
+    } catch (error) {
+      console.error('Error al ejecutar la macro:', error);
+    }
+  }
+  
+  
+  /*document.getElementById('ejecutarMacro').addEventListener('click', () => {
+      gapi.auth2.getAuthInstance().signIn().then(() => {
+          ejecutarMacro(); // Llama la funcion
+      });
+    });*/
+  
+  document.addEventListener('DOMContentLoaded', () => {
+      const boton = document.getElementById('ejecutarMacro');  
+       // Agregar el evento 'click' al botón
+       boton.addEventListener('click', () => {
+          const auth2 = gapi.auth2.getAuthInstance();
+          if (!auth2.isSignedIn.get()) {
+              auth2.signIn().then(() => {
+                  ejecutarMacro(); // Llama la función
+              });
+          } else {
+              ejecutarMacro(); // Llama la función
+          }
+      });
   });
-}
-
-// Función para enviar los datos a la hoja de cálculo
-function enviarDatosASpreadsheet() {
-  // Aquí puedes agregar el código para mostrar y validar el formulario
-  // ...
-  mostrarFormulario();
-}
-
-// ... Resto de tu código ...
+  
+  
+     
+    

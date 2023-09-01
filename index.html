@@ -1,131 +1,165 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Permissions-Policy" content="ch-ua-form-factor 'none'">
-	<meta name="google-signin-client_id" content="558490154225-2babaauq90aomftro5h8ddmj4i7nh4g8.apps.googleusercontent.com.apps.googleusercontent.com">
-	<title>VITCOMS</title>
-	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/errHistorial.js"></script>
-	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="https://apis.google.com/js/api.js"></script>
-	<script src="js/ejecutarinforme.json"></script>
-   
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Permissions-Policy" content="ch-ua-form-factor 'none'">
+		<meta name="google-signin-client_id" content="558490154225-3d8vo965vccqn50trj6nraf6388bivb8.apps.googleusercontent.com">
+		
 	
-</head>
-<body>
-	<div data-role="page" id="home"  >
-		<div data-role="header" class="header ">
-			<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
-			<h1 >Acesoria empresarial</h1>
-			
-		</div>
-	
-		<div role="main" class=" content ui-content custom-form">
-			<form id="login-form">
-				<label for="username">Usuario:</label>
-				<input type="text" name="username" id="username" value="">
-				<label for="password">Contraseña:</label>
-				<input type="password" name="password" id="password" value="">
-				<button type="submit" data-theme="b" class="ui-btn btn-menu-salir" style="background-color: #F6F6FA; color: #0448FC; border: 1px solid #72797D;">Ingresar</button>
+		<title>VITCOMS</title>
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-cg6K+8h5KtJ+9QnCjwvXv8QZ+LQK5jN3wWtGg8zZ1XzN4q7Kd2F/3mZl8zZmLrY9t7QaP2D3JqIhTzVQ6t+GJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<script src="https://apis.google.com/js/api.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="https://kit.fontawesome.com/091ef48272.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/errHistorial.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://accounts.google.com/gsi/client"></script>	
+		
+		<script>
+			gapi.load('client:auth2', function() {
+				gapi.client.init({
+				clientId: '558490154225-3d8vo965vccqn50trj6nraf6388bivb8.apps.googleusercontent.com',
+				clientSecret: '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',
+				discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4']
+				}).then(function() {
+				console.log(gapi.client.sheets); // Verifica si gapi.client.sheets está definido
+				}, function(error) {
+				console.error('Error al inicializar la API de Google Sheets', error);
+				});
+			});	
 
-
-			</form>
-		</div>
-	
-		<div data-role="footer" class="header">
-			<h4>Acesoria Empresarial</h4>
-			<p><a href="#contacto">Contacto</a> | <a href="#correo">Correo electrónico</a></p>
-		</div><!-- /footer -->
-	</div><!-- /page -->
-	
-	<!-- Agrega aquí el código HTML para las otras páginas -->
-	<!--menu de seleccion de opciones-->
-	<div data-role="page" id="opciones" >
-		<div data-role="header" class="header">
-			<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
-			<h1 >Acesoria empresarial</h1>
-			
-		</div><!-- /header -->
-
-		<div role="main" class="ui-content">
-			<ul class="vertical-list professional-list">
-				<li> <a href="https://docs.google.com/forms/d/e/1FAIpQLScOOg9Ln1zqQs-iQGr_3qB0eR97Al_VUrjRdUTn4JAMvdRCoQ/viewform" data-role="button" id="btnBodega">BODEGA ELECTRO</a></li> 
-				<li><a href="https://docs.google.com/forms/d/1to-nxMi0tEJZsjTKL2jVIW5slcE-o4FFO1Q8X7jKIfU/edit" data-role="button" id="btnElectro">PISO ELECTRO</a></li>
-				<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSduEqJHvbgUuivoYrO1j5X7UhCp488_4BisiB7C21KK6teMvQ/viewform" data-role="button" id="btnRecorredor">RECORREDOR </a></li>
-				<li><a href="https://docs.google.com/forms/d/e/1FAIpQLScwKUCcrr6ImxTGwyX_bJcrXfPhLJJVx6P5p3vMzpR-65U9PQ/viewform" data-role="button" id="btnVisitaCliente">VISITA COORDINADOR </a></li>
-				<button onclick="mostrarFormulario()">Mostrar formulario</button>
-
-
-			</ul>
-
-			<div id="formulario" style="display: none;">
-			<label for="sucursal">Sucursal:</label>
-			<select id="sucursal">
-				<option value="BOGOTA COLINA">BOGOTA COLINA</option>
-				<option value="BOGOTA SANTAFE">BOGOTA SANTAFE</option>
-				<option value="BOGOTA UNICENTRO">BOGOTA UNICENTRO</option>
-				<!-- Agrega todas las opciones de sucursales aquí -->
-			</select>
-			<br>
-			<label for="fecha">Fecha:</label>
-			<input type="text" id="fecha">
-			<br>
-			<button onclick="almacenarDatos()">Guardar datos</button>
+		
+		/*
+			gapi.load('client:auth2', function() {
+				gapi.client.init({
+				clientId: '558490154225-3d8vo965vccqn50trj6nraf6388bivb8.apps.googleusercontent.com',
+				clientSecret: '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',
+				discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+				}).then(function() {
+				console.log('API de Google Sheets inicializada');
+				console.log(gapi.auth2);
+				}, function(error) {
+				console.error('Error al inicializar la API de Google Sheets', error);
+				});
+			});	*/
+		</script>
+		<script type="text/javascript" src="js/generarInforme.js"></script> <!-- Asegúrate de incluir tu archivo 'crearInforme.js' -->
+	</head>
+	<body>
+		<div data-role="page" id="home"  >
+			<div data-role="header" class="header ">
+				<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
+				<h1 >Acesoria empresarial</h1>
+				
 			</div>
+		
+			<div role="main" class=" content ui-content custom-form">
+				<form id="login-form">
+					<label for="username">Usuario:</label>
+					<input type="text" name="username" id="username" placeholder="Ingrese su usuario" required value="">
+					<label for="password">Contraseña:</label>
+					<div class="password-container">
+					  <input type="password" name="password" id="password" placeholder="Ingrese contraseña" required value="">
+					  <i class="fas fa-eye-slash password-toggle"></i>
+					</div>
+					<button type="submit" data-theme="b" class="ui-btn btn-menu-salir" style="background-color: #F6F6FA; color: #0448FC; border: 1px solid #72797D;">Ingresar</button>
+				  </form>
+			</div>
+		
+			<div data-role="footer" class="header">
+				<h4>Acesoria Empresarial</h4>
+				<p><a href="#contacto">Contacto</a> | <a href="#correo">Correo electrónico</a></p>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+		
+		<!-- Agrega aquí el código HTML para las otras páginas -->
+		<!--menu de seleccion de opciones-->
+		<div data-role="page" id="opciones" >
+			<div data-role="header" class="header">
+				<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
+				<h1 >Acesoria empresarial</h1>
+				
+			</div><!-- /header -->
 
-		</div><!-- /content -->
+			<div role="main" class="ui-content">
+				<ul class="vertical-list professional-list">
+					<li> <a href="https://docs.google.com/forms/d/e/1FAIpQLScOOg9Ln1zqQs-iQGr_3qB0eR97Al_VUrjRdUTn4JAMvdRCoQ/viewform" data-role="button" id="btnBodega">BODEGA ELECTRO</a></li> 
+					<li><a href="https://docs.google.com/forms/d/1to-nxMi0tEJZsjTKL2jVIW5slcE-o4FFO1Q8X7jKIfU/edit" data-role="button" id="btnElectro">PISO ELECTRO</a></li>
+					<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSduEqJHvbgUuivoYrO1j5X7UhCp488_4BisiB7C21KK6teMvQ/viewform" data-role="button" id="btnRecorredor">RECORREDOR </a></li>
+					<li><a href="https://docs.google.com/forms/d/e/1FAIpQLScwKUCcrr6ImxTGwyX_bJcrXfPhLJJVx6P5p3vMzpR-65U9PQ/viewform" data-role="button" id="btnVisitaCliente">VISITA COORDINADOR </a></li>
+				<!----	<button id="mostrarFormulario">Mostrar  formulario</button> -->
 
-	   <div data-role="footer"class="header">
-	        <h4>Acesoria empresarial</h4>
-	        <p><a href="#contacto">Contacto</a> | <a href="#correo">Correo electrónico</a></p>
-	    </div><!-- /footer -->
-	</div><!-- /page -->
+
+				</ul>
+
+				<!-- formulario para generar acta
+					<div id="formulario" style="display: none;">
+				<label for="sucursal">Sucursal:</label>
+				<select id="sucursal">
+					<option value="BOGOTA COLINA">BOGOTA COLINA</option>
+					<option value="BOGOTA SANTAFE">BOGOTA SANTAFE</option>
+					<option value="BOGOTA UNICENTRO">BOGOTA UNICENTRO</option>
+					<option value="BOGOTA HAYUELOS">BOGOTA HAYUELOS</option>
+					ojo comentario-> Agrega todas las opciones de sucursales aquí 
+				</select>
+				<br>
+				<label for="fecha">Fecha:</label>
+				<input type="text" id="fecha">
+				<br>
+				<button  id="ejecutarMacro">Guardar datos</button>
+				</div>-->
+
+			</div><!-- /content -->
+
+		<div data-role="footer"class="header">
+				<h4>Acesoria empresarial</h4>
+				<p><a href="#contacto">Contacto</a> | <a href="#correo">Correo electrónico</a></p>
+			</div><!-- /footer -->
+		</div><!-- /page -->
 
 
-<!--------------------------------------------------------------------------------------------------------->	
+	<!--------------------------------------------------------------------------------------------------------->	
 
-	<!--aca los formularios-->
-	<div data-role="page" id="forms" >
-		<div data-role="header" class="header">
-			<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
-			<h1 >Acesoria empresarial</h1>
+		<!--aca los formularios-->
+		<div data-role="page" id="forms" >
+			<div data-role="header" class="header">
+				<img src="img/Logo_Vitcoms.png" alt="Logo de la empresa" class="responsive-img">
+				<h1 >Acesoria empresarial</h1>
+				
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content  " id="formulario-inspeccion-servicio-bodega-electro">
+			<!-- Agrega aquí el código HTML para mostrar el formulario de Google -->
+		
+				<iframe id="mi-iframe" src="#" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+				
+				
+				<!-- Contenido -->
+				<!-- Contenido -->
+				<!-- Contenido -->
+				<a href="#opciones" data-role="button" id="btnmenu" data-theme="b" class="ui-btn btn-menu-salir" style="background-color: #F6F6FA; color: #0448FC; border: 1px solid #72797D;">MENU</a>
+				<a href="#home" data-role="button" id="btnsalir" data-theme="b" class="ui-btn btn-menu-salir" style="background-color: #F6F6FA; color: #0448FC; border: 1px solid #72797D ;">SALIR</a>
+			</div>
+				
+
 			
-		</div><!-- /header -->
+		</div><!-- /page -->
 
-    	<div role="main" class="ui-content  " id="formulario-inspeccion-servicio-bodega-electro">
-        <!-- Agrega aquí el código HTML para mostrar el formulario de Google -->
-       
-	        <iframe id="mi-iframe" src="#" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-			
-        	
-        	<!-- Contenido -->
-			<!-- Contenido -->
-			<!-- Contenido -->
-			<a href="#opciones" data-role="button" id="btnmenu" data-theme="b" class="ui-btn btn-menu-salir" style="background-color: #F6F6FA; color: #0448FC; border: 1px solid #72797D;">MENU</a>
-			<a href="#home" data-role="button" id="btnsalir" data-theme="b" class="ui-btn btn-menu-salir" style="background-color: #F6F6FA; color: #0448FC; border: 1px solid #72797D ;">SALIR</a>
-		</div>
-			
-
-   		
-	</div><!-- /page -->
-
-	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/javascript" src="js/crearInforme.js"></script>
-	<script type="text/javascript">
-		//ajustar altura iframe de googlesheets
-function ajustarAltura() {
-  var iframe = document.getElementById("mi-iframe");
-  var altura = iframe.contentWindow.document.body.scrollHeight;
-  iframe.style.height = altura + "px";
-}
-	</script>
-	
-	
-</body>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript">
+			//ajustar altura iframe de googlesheets
+	function ajustarAltura() {
+	var iframe = document.getElementById("mi-iframe");
+	var altura = iframe.contentWindow.document.body.scrollHeight;
+	iframe.style.height = altura + "px";
+	}
+		</script>
+		
+		
+	</body>
 </html>
-

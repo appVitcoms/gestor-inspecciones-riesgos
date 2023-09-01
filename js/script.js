@@ -7,7 +7,7 @@ $(document).on("pagecreate", "#home", function() {
         var password = $("#password").val();
         
         // Validar usuario y contraseña
-        if (username === "" && password === "") {
+        if (username === "vitcoms2017" && password === "VITCOMS/2023") {
             // Si son válidos, redireccionar a la página de opciones
             $("#username").val("");
             $("#password").val("");
@@ -38,6 +38,21 @@ $(document).on("pagecreate", "#home", function() {
         return false;
     });
 });
+
+//cambiar contraseña a texto para ayuda al usuario
+document.querySelector('.password-toggle').addEventListener('click', function() {
+    var passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      this.classList.remove('fa-eye-slash');
+      this.classList.add('fa-eye');
+    } else {
+      passwordInput.type = "password";
+      this.classList.remove('fa-eye');
+      this.classList.add('fa-eye-slash');
+    }
+  });
+
 
 
 $(document).on("pagecreate", "#opciones", function() {
@@ -78,11 +93,9 @@ $(document).on("pagecreate", "#opciones", function() {
 });
 
 
-/*
+
 $("#btnGenerarInforme").on("click", function() {
   // Obtener el ID del formulario de Google correspondiente
-  
-
   // Actualizar el src del iframe con la URL del formulario de Google correspondiente
   var sheetId = "2PACX-1vQRDgXVUumUZC1hKIvvfbAX4JDKiD_7IlrPMXSszwBoQCy2AJlfwFflBwpy5znZZ_RAFInIePjIdtNG"; // Reemplaza esto con el ID de la hoja que deseas mostrar
   var range = "B5:h40";
@@ -94,7 +107,15 @@ $("#btnGenerarInforme").on("click", function() {
   $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
 
   return false;
-});*/
+});
+
+//funcion mostrar formulario de tienda y fecha para informe
+function mostrarFormulario() {
+    $('#formulario').fadeIn('slow');
+  }
+  $('#mostrarFormulario').on('click', mostrarFormulario);
+
+
  $("#btnVisitaCliente").on("click", function() {
         // Obtener el ID del formulario de Google correspondiente
     var formularioId = "1FAIpQLScwKUCcrr6ImxTGwyX_bJcrXfPhLJJVx6P5p3vMzpR-65U9PQ";
@@ -106,13 +127,6 @@ $("#btnGenerarInforme").on("click", function() {
     $.mobile.changePage("#forms", {transition: "pop", role: "dialog"});
     return false;
 });
-
-
-
-
-
-
-
 
 
  $(document).on('mobileinit', function() {
